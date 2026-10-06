@@ -1,7 +1,18 @@
-query user {
-    user(id: 1) {
-        id
-        username
-        email
-    }
+fragment AddressFields on Address {
+  street
+  zip
+}
+
+fragment UserFields on User {
+  id
+  name
+  address {
+    ...AddressFields
+  }
+}
+
+query GetUser {
+  user {
+    ...UserFields
+  }
 }

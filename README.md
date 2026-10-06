@@ -1,11 +1,26 @@
-# `graphql-code-generator` Codesandbox template
+# Fragment documents miss the fragments they spread (graphQLTag)
 
-You can use this repo in order to quickly create a template for reproducing issues related to `graphql-code-generator`. 
+With `documentMode: graphQLTag`, `UserFieldsFragmentDoc` spreads `...AddressFields` but does not include `${AddressFieldsFragmentDoc}`. Apollo Client then fails when you use the fragment document on its own.
 
-Use the following link: https://codesandbox.io/s/github/dotansimha/graphql-code-generator-issue-sandbox-template 
+```sh
+npm install
+npm start
+```
 
-* `document.graphql` - your GraphQL operations - queries, mutations, subscritpions and fragments.
-* `schema.graphql` - your GraphQL schema.
-* `codegen.yml` - Codegen configuration
+Output:
 
-> Create a fork from this template, and then in your sandbox terminal, use `yarn generate` to generate the types. 
+```
+UserFieldsFragmentDoc:
+
+fragment UserFields on User {
+  id
+  name
+  address {
+    ...AddressFields
+  }
+}
+
+writeFragment failed: No fragment named AddressFields
+```
+
+See `types.ts` for the generated code.

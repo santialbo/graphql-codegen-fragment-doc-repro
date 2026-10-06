@@ -1,9 +1,0 @@
-{
-  "extends": ["github>the-guild-org/shared-config:renovate"],
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
-  ]
-}

@@ -1,9 +1,14 @@
 type Query {
-    user(id: ID!): User!
+  user: User
 }
 
 type User {
-    id: ID!
-    username: String!
-    email: String!
+  id: ID!
+  name: String!
+  address: Address
+}
+
+type Address {
+  street: String!
+  zip: String!
 }

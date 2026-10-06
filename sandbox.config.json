@@ -3,6 +3,6 @@
   "hardReloadOnChange": false,
   "template": "node",
   "container": {
-    "node": "16"
+    "node": "20"
   }
 }

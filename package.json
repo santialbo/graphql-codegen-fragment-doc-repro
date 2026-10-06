@@ -1,19 +1,24 @@
 {
-  "name": "graphql-codegen-issue-template",
+  "name": "graphql-codegen-fragment-doc-repro",
   "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "generate": "yarn codegen",
-    "start": "graphql-codegen --config ./codegen.ts --watch",
-    "codegen": "graphql-codegen --config ./codegen.ts"
+    "generate": "npm run codegen",
+    "codegen": "graphql-codegen --config ./codegen.ts",
+    "start": "npm run codegen && tsx repro.ts"
   },
   "dependencies": {
-    "@graphql-codegen/add": "^5.0.0",
-    "@graphql-codegen/cli": "^4.0.1",
-    "@graphql-codegen/typescript": "^4.0.1",
-    "@graphql-codegen/typescript-operations": "^4.0.1",
-    "graphql": "^16.2.0"
+    "@apollo/client": "4.3.1",
+    "@graphql-codegen/cli": "7.4.3",
+    "@graphql-codegen/typed-document-node": "7.1.1",
+    "@graphql-codegen/typescript": "6.1.0",
+    "@graphql-codegen/typescript-operations": "6.1.9",
+    "graphql": "16.14.2",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "typescript": "^4.8.4"
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
   }
 }
